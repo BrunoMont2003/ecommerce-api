@@ -7,24 +7,26 @@
 
 ### API ENDPOINTS
 
-| Verb   | URI                    | Action                              |
-|--------|------------------------|-------------------------------------|
-| POST   | `/register `           | create no admin user                |
-| POST   | `/login    `           | login                               |
-| GET    | `/users    `           | get all users                       |
-| GET    | `/users/:id`           | get one user                        |
-| POST   | `/users/   `           | create user                         |
-| PUT    | `/users/:id`           | update user                         |
-| DELETE | `/users/:id`           | delete user                         |
-| GET    | `/products`            | get all products                    |
-| GET    | `/products/:id`        | get one product                     |
-| POST   | `/products`            | create product                      |
-| PUT    | `/products/:id`        | update product                      |
-| DELETE | `/products/:id`        | delete product                      |
-| POST   | `/user/cart/:productId`| add product to user's shopping cart |
-| DELETE | `/user/cart/:productId`| remove product from user's shopping cart |
-| GET    | `/orders`              | get all orders                      |
-| GET    | `/orders/:id`          | get one order                       |
-| POST   | `/orders`              | generate an order                   |
-| PUT    | `/orders/:id`          | update an order                     |
-| DELETE | `/orders/:id`          | delete an order                     |
+| Verb   	| URI                          	| Action                                   	| Auth  	|
+|--------	|------------------------------	|------------------------------------------	|-------	|
+| POST   	| `/register `                 	| create no admin user                     	| none  	|
+| POST   	| `/login    `                 	| login                                    	| none  	|
+| GET    	| `/users    `                 	| get all users                            	| admin 	|
+| GET    	| `/users/:user`               	| get one user                             	| admin 	|
+| POST   	| `/users/   `                 	| create user                              	| admin 	|
+| PUT    	| `/users/:user`               	| update user                              	| admin 	|
+| DELETE 	| `/users/:user`               	| delete user                              	| admin 	|
+| GET    	| `/products`                  	| get all products                         	| both  	|
+| GET    	| `/products/:product`         	| get one product                          	| both  	|
+| POST   	| `/products`                  	| create product                           	| admin 	|
+| PUT    	| `/products/:product`         	| update product                           	| admin 	|
+| DELETE 	| `/products/:product`         	| delete product                           	| admin 	|
+| GET    	| `/orders`                    	| get all orders                           	| admin 	|
+| GET    	| `/mycart`             	    | get items from user's cart                | customer 	|
+| POST    	| `/mycart`             	    | add items to user's cart                  | customer 	|
+| DELETE    | `/mycart/:product`            | remove a product from user's cart         | customer 	|
+| DELETE    | `/mycart`                     | remove all products from user's cart      | customer 	|
+| POST      | `/buy`                        | create an order with the cart's content   | customer 	|
+| GET    	| `/users/me`             	    | get user's own information                | customer 	|
+| UPDATE  	| `/users/me`             	    | update user's own information             | customer 	|
+| GET    	| `/myorders`             	    | get user's shopping history               | customer 	|
