@@ -1,7 +1,7 @@
 # ecommerce-api
 
 ## ER MODEL
-![ER MODEL](/db/er-model.jpeg)
+![ER MODEL](/assets/er-model.jpg)
 
 ## API DOCUMENTATION
 
