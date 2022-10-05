@@ -1,4 +1,4 @@
-import { loginSchema } from '../schemas/index.js'
+import { loginSchema } from '../../schemas/index.js'
 const loginValidator = async (req, res, next) => {
   try {
     await loginSchema.validateAsync(req.body)
