@@ -9,12 +9,10 @@
 
 | Verb   	| URI                          	| Action                                   	| Auth  	|
 |--------	|------------------------------	|------------------------------------------	|-------	|
-| POST   	| `/register `                 	| create no admin user                     	| none  	|
+| POST   	| `/register `                 	| create user                            	| none  	|
 | POST   	| `/login    `                 	| login                                    	| none  	|
 | GET    	| `/users    `                 	| get all users                            	| admin 	|
 | GET    	| `/users/:user`               	| get one user                             	| admin 	|
-| POST   	| `/users/   `                 	| create user                              	| admin 	|
-| PUT    	| `/users/:user`               	| update user                              	| admin 	|
 | DELETE 	| `/users/:user`               	| delete user                              	| admin 	|
 | GET    	| `/products`                  	| get all products                         	| both  	|
 | GET    	| `/products/:product`         	| get one product                          	| both  	|
