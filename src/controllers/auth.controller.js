@@ -1,7 +1,10 @@
 import { User } from '../models/index.js'
+import bcrypt from 'bcrypt'
 const register = async (req, res) => {
   try {
-    const user = await User.create(req.body)
+    const encripted = await bcrypt.hash(req.body.password, 10)
+    const user = await User.create({ ...req.body, password: encripted })
+    user.password = undefined
     return res.status(201).json({
       message: 'User created successfully',
       user

@@ -15,7 +15,8 @@ const createUserSchema = Joi.object({
     then: Joi.object({
       street: Joi.string().required(),
       city: Joi.string().required(),
-      state: Joi.string().required(),
+      country: Joi.string().required(),
+      province: Joi.string().required(),
       zip: Joi.string().required()
     }).required()
   })

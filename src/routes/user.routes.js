@@ -1,6 +1,6 @@
 import { Router } from 'express'
-import { UserController } from '../controllers/index.js'
+import { AuthController } from '../controllers/index.js'
 import { UserValidatorMiddleware } from '../middlewares/index.js'
 const router = Router()
-router.post('/register', UserValidatorMiddleware, UserController.register)
+router.post('/register', UserValidatorMiddleware, AuthController.register)
 export default router
