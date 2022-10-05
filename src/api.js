@@ -1,12 +1,10 @@
 import express from 'express'
-import { UserRoutes } from './routes/index.js'
+import { AdminValidatorMiddleware, AuthValidatorMiddleware } from './middlewares/index.js'
+import { AuthRoutes, UserRoutes } from './routes/index.js'
 const app = express()
 app.use(express.json())
-app.use(UserRoutes)
-app.get('/ping', (req, res) => {
-  res.send({
-    message: 'pong'
-  })
-})
+app.use(AuthRoutes)
+app.use(AuthValidatorMiddleware)
+app.use(UserRoutes, AdminValidatorMiddleware)
 
 export default app

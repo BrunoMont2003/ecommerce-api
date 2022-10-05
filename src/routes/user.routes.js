@@ -1,7 +1,11 @@
 import { Router } from 'express'
-import { AuthController } from '../controllers/index.js'
-import { CreateUserValidatorMiddleware, LoginValidatorMiddleware } from '../middlewares/index.js'
+import { UserController } from '../controllers/index.js'
 const router = Router()
-router.post('/register', CreateUserValidatorMiddleware, AuthController.register)
-router.post('/login', LoginValidatorMiddleware, AuthController.login)
+router
+  .route('/users')
+  .get(UserController.getAllUsers)
+router
+  .route('/users/:id')
+  .get(UserController.getUserById)
+  .delete(UserController.deleteUser)
 export default router

@@ -1,3 +1,3 @@
 import AuthController from './auth.controller.js'
-
-export { AuthController }
+import UserController from './user.controller.js'
+export { AuthController, UserController }
