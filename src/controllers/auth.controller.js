@@ -26,7 +26,11 @@ const login = async (req, res) => {
     if (!validPassword) {
       return res.status(401).json({ message: 'Invalid Credentials' })
     }
-    const token = jwt.encode({ id: user.id }, config.security.token.secret)
+    const payload = {
+      id: user.id,
+      role: user.role
+    }
+    const token = jwt.encode(payload, config.security.token.secret)
     return res.status(200).json({
       message: 'User logged in successfully',
       token
