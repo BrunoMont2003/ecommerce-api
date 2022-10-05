@@ -7,8 +7,11 @@ const createUserSchema = Joi.object({
   email: Joi.string().email().required(),
   password: Joi.string().required(),
   phone: Joi.string()
-    .required()
-    .pattern(/^[0-9]{9}$/),
+    .pattern(/^[0-9]{9}$/)
+    .when('role', {
+      is: Joi.valid('customer'),
+      then: Joi.required()
+    }),
   // if role is customer or not provided, then shippingAddress is required
   shippingAddress: Joi.when('role', {
     is: Joi.valid('customer'),
@@ -18,7 +21,8 @@ const createUserSchema = Joi.object({
       country: Joi.string().required(),
       province: Joi.string().required(),
       zip: Joi.string().required()
-    }).required()
+    }).required(),
+    otherwise: Joi.forbidden()
   })
 })
 

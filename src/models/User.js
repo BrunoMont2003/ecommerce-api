@@ -19,10 +19,7 @@ const UserSchema = new Schema({
     type: String,
     required: true
   },
-  phone: {
-    type: String,
-    required: true
-  },
+  phone: String,
   shippingAddress: {
     country: String,
     city: String,
