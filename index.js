@@ -1,7 +1,7 @@
 import { createServer } from 'http'
 import app from './src/api.js'
-import config from './src/config/index.js'
-import connect from './src/config/db.js'
+import config from './src/configs/general.config.js'
+import connect from './src/configs/db.config.js'
 const server = createServer(app)
 
 server.on('listening', () => {

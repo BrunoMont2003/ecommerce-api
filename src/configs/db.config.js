@@ -1,4 +1,4 @@
-import config from './index.js'
+import config from './general.config.js'
 import mongoose from 'mongoose'
 
 const db = mongoose.connection
