@@ -1,3 +1,5 @@
+import dotenv from 'dotenv'
+dotenv.config()
 const config = {
   server: {
     port: process.env.PORT
@@ -7,6 +9,11 @@ const config = {
   },
   db: {
     uri: process.env.MONGO_URI
+  },
+  security: {
+    token: {
+      secret: process.env.TOKEN_SECRET
+    }
   }
 }
 export default config

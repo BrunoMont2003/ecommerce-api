@@ -1,4 +1,4 @@
-import { createUserSchema } from './schemas/index.js'
+import { createUserSchema } from '../schemas/index.js'
 const createUserValidator = async (req, res, next) => {
   try {
     await createUserSchema.validateAsync(req.body)
