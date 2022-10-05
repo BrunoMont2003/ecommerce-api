@@ -1,7 +1,7 @@
 import Joi from 'joi'
 
 const createUserSchema = Joi.object({
-  role: Joi.valid('admin', 'customer').default('customer'),
+  role: Joi.string().valid('customer', 'admin').default('customer'),
   firstName: Joi.string().required(),
   lastName: Joi.string().required(),
   email: Joi.string().email().required(),

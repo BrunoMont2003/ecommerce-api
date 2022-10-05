@@ -1,7 +1,10 @@
 import { Schema, model } from 'mongoose'
 
 const UserSchema = new Schema({
-  role: String,
+  role: {
+    type: String,
+    default: 'customer'
+  },
   firstName: {
     type: String,
     required: true
