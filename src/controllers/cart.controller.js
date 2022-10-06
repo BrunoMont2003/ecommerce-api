@@ -3,7 +3,7 @@ const addItem = async (req, res) => {
   try {
     const { product, quantity } = req.body
     const { user } = req
-    const cart = await Cart.findOne({ user: user._id })
+    const cart = await Cart.findOne({ user: user.id })
     if (cart) {
       const item = cart.items.find(
         (item) => item.product.toString() === product
@@ -17,7 +17,7 @@ const addItem = async (req, res) => {
       })
     }
     const newCart = new Cart({
-      user: user._id,
+      user: user.id,
       items: [{ product, quantity }]
     })
     await newCart.save()
@@ -34,7 +34,7 @@ const deleteProduct = async (req, res) => {
   try {
     const { product } = req.params
     const { user } = req
-    const cart = await Cart.findOne({ user: user._id })
+    const cart = await Cart.findOne({ user: user.id })
     if (cart) {
       const item = cart.items.find((item) => {
         return item.product.toString() === product
@@ -66,7 +66,7 @@ const deleteProduct = async (req, res) => {
 const deleteAllItems = async (req, res) => {
   try {
     const { user } = req
-    const cart = await Cart.findOne({ user: user._id })
+    const cart = await Cart.findOne({ user: user.id })
     if (cart) {
       cart.items = []
       await cart.save()
@@ -86,7 +86,7 @@ const deleteAllItems = async (req, res) => {
 const getAllItems = async (req, res) => {
   try {
     const { user } = req
-    const cart = await Cart.findOne({ user: user._id }).populate(
+    const cart = await Cart.findOne({ user: user.id }).populate(
       'items.product',
       'name price provider'
     ).select('-_id')
