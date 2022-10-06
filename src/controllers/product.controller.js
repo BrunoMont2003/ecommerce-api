@@ -18,6 +18,7 @@ const createProduct = async (req, res) => {
 const getProducts = async (req, res) => {
   try {
     const { name, sortBy, minPrice, maxPrice, provider } = req.query
+    const { role } = req.user
     const query = {}
     if (name) {
       query.name = { $regex: name, $options: 'i' }
@@ -31,8 +32,14 @@ const getProducts = async (req, res) => {
     if (provider) {
       query.provider = { $regex: provider, $options: 'i' }
     }
+    if (role === 'admin') {
+      const products = await Product.find(query).sort(sortBy)
+      return res.status(200).json({
+        products
+      })
+    }
     query.stock = { $gt: 0 }
-    const products = await Product.find(query).sort(sortBy)
+    const products = await Product.find(query).sort(sortBy).select('-stock')
 
     return res.status(200).json({
       products
