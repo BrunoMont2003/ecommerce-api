@@ -11,6 +11,7 @@ import UpdatePaymentValidatorMiddleware from './validator/payments/update-paymen
 import PaymentExistsMiddleware from './validator/payments/payment-exists.validator.middleware.js'
 import addItemToCartValidatorMiddleware from './validator/carts/add-item-to-cart.validator.middleware.js'
 import CreateOrderValidatorMiddleware from './validator/orders/create-order.validator.middleware.js'
+import VerifyPaymentValidatorMiddleware from './validator/orders/verify-payment.validator.middleware.js'
 export {
   CreateUserValidatorMiddleware,
   CreateProductValidatorMiddleware,
@@ -24,5 +25,6 @@ export {
   UpdatePaymentValidatorMiddleware,
   PaymentExistsMiddleware,
   addItemToCartValidatorMiddleware,
-  CreateOrderValidatorMiddleware
+  CreateOrderValidatorMiddleware,
+  VerifyPaymentValidatorMiddleware
 }
