@@ -9,7 +9,8 @@ import {
   AuthRoutes,
   UserRoutes,
   ProductRoutes,
-  PaymentRoutes
+  PaymentRoutes,
+  CartRoutes
 } from './routes/index.js'
 const app = express()
 app.use(express.json())
@@ -21,5 +22,6 @@ app.use(UserRoutes)
 app.use(ProductRoutes)
 app.use('/payments', CustomerValidatorMiddleware)
 app.use(PaymentRoutes)
-
+app.use('/mycart', CustomerValidatorMiddleware)
+app.use(CartRoutes)
 export default app
