@@ -1,2 +1,3 @@
 import User from './User.js'
-export { User }
+import Product from './Product.js'
+export { User, Product }
