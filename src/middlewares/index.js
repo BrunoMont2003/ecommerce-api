@@ -9,6 +9,7 @@ import ProductExistsMiddleware from './validator/products/product-exists.validat
 import CreatePaymentValidatorMiddleware from './validator/payments/create-payment.validator.middleware.js'
 import UpdatePaymentValidatorMiddleware from './validator/payments/update-payment.validator.middleware.js'
 import PaymentExistsMiddleware from './validator/payments/payment-exists.validator.middleware.js'
+import CreateCartValidatorMiddleware from './validator/carts/create-cart.validator.middleware.js'
 export {
   CreateUserValidatorMiddleware,
   CreateProductValidatorMiddleware,
@@ -20,5 +21,6 @@ export {
   ProductExistsMiddleware,
   CreatePaymentValidatorMiddleware,
   UpdatePaymentValidatorMiddleware,
-  PaymentExistsMiddleware
+  PaymentExistsMiddleware,
+  CreateCartValidatorMiddleware
 }
