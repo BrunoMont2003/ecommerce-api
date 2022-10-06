@@ -31,6 +31,7 @@ const getProducts = async (req, res) => {
     if (provider) {
       query.provider = { $regex: provider, $options: 'i' }
     }
+    query.stock = { $gt: 0 }
     const products = await Product.find(query).sort(sortBy)
 
     return res.status(200).json({
