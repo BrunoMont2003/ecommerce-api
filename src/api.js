@@ -1,14 +1,25 @@
 import express from 'express'
+import morgan from 'morgan'
 import {
   AdminValidatorMiddleware,
-  AuthValidatorMiddleware
+  AuthValidatorMiddleware,
+  CustomerValidatorMiddleware
 } from './middlewares/index.js'
-import { AuthRoutes, UserRoutes, ProductRoutes } from './routes/index.js'
+import {
+  AuthRoutes,
+  UserRoutes,
+  ProductRoutes,
+  PaymentRoutes
+} from './routes/index.js'
 const app = express()
 app.use(express.json())
+app.use(morgan('dev'))
 app.use(AuthRoutes)
 app.use(AuthValidatorMiddleware)
-app.use(UserRoutes, AdminValidatorMiddleware)
+app.use('/users', AdminValidatorMiddleware)
+app.use(UserRoutes)
 app.use(ProductRoutes)
+app.use('/payments', CustomerValidatorMiddleware)
+app.use(PaymentRoutes)
 
 export default app

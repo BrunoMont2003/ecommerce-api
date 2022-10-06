@@ -11,7 +11,7 @@ const PaymentSchema = new Schema({
     lastFourNumbers: String,
     expiryMonth: Number,
     expiryYear: Number,
-    cvvVerify: Boolean
+    cvvVerified: Boolean
   },
   user: {
     type: Schema.Types.ObjectId,
