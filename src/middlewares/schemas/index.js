@@ -5,6 +5,7 @@ import updateProductSchema from './products/update-product.schema.js'
 import createPaymentSchema from './payment/create-payment.schema.js'
 import updatePaymentSchema from './payment/update-payment.schema.js'
 import addItemToCartSchema from './carts/add-item-to-cart.schema.js'
+import createOrderSchema from './orders/create-order.schema.js'
 export {
   createUserSchema,
   loginSchema,
@@ -12,5 +13,6 @@ export {
   updateProductSchema,
   createPaymentSchema,
   updatePaymentSchema,
-  addItemToCartSchema
+  addItemToCartSchema,
+  createOrderSchema
 }
