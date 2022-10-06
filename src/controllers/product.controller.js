@@ -17,7 +17,22 @@ const createProduct = async (req, res) => {
 
 const getProducts = async (req, res) => {
   try {
-    const products = await Product.find()
+    const { name, sortBy, minPrice, maxPrice, provider } = req.query
+    const query = {}
+    if (name) {
+      query.name = { $regex: name, $options: 'i' }
+    }
+    if (minPrice) {
+      query.price = { $gte: minPrice }
+    }
+    if (maxPrice) {
+      query.price = { $lte: maxPrice }
+    }
+    if (provider) {
+      query.provider = { $regex: provider, $options: 'i' }
+    }
+    const products = await Product.find(query).sort(sortBy)
+
     return res.status(200).json({
       products
     })
