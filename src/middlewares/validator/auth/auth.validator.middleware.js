@@ -1,6 +1,6 @@
 import config from '../../../configs/general.config.js'
 import jwt from 'jwt-simple'
-import User from '../../../models/User.js'
+import { User } from '../../../models/index.js'
 const authValidator = async (req, res, next) => {
   const token = req.headers.authorization
   if (!token) {
