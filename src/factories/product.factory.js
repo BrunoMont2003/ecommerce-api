@@ -12,7 +12,7 @@ class ProductFactory {
         stock: faker.datatype.number({ min: 0, max: 1000 }),
         specs: {
           color: faker.color.human(),
-          size: faker.commerce.productAdjective(),
+          size: faker.datatype.number({ min: 1, max: 100 }),
           weight: faker.datatype.number({ min: 1, max: 1000 }),
           width: faker.datatype.number({ min: 1, max: 1000 })
         }
